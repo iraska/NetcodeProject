@@ -43,8 +43,10 @@ public class GetLobbies : MonoBehaviour
 
             foreach (Lobby findingLobby in lobbies.Results)
             {
-                Debug.Log("Lobby name : " + findingLobby.Name + "\n" + "Lobby creation time : " + findingLobby.Created);
+                Debug.Log("Lobby name : " + findingLobby.Name + "\n" + "Lobby creation time : " + findingLobby.Created + "\n" + "Lobby code = " + findingLobby.LobbyCode + "\n" + "Lobby ID = " + findingLobby.Id);
             }
+
+            GetComponent<JoinLobby>().JoinLobbyWithLobbyId(lobbies.Results[0].Id);
         }
         catch (LobbyServiceException e)
         {
