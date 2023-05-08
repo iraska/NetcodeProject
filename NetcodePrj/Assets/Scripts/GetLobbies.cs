@@ -19,6 +19,7 @@ public class GetLobbies : MonoBehaviour
         {
             QueryLobbiesOptions options = new();
             Debug.LogWarning("QueryLobbiesTest");
+
             options.Count = 25;
 
             // Filter for open lobbies only
@@ -30,11 +31,11 @@ public class GetLobbies : MonoBehaviour
                     value: "0")
             };
 
-            // Order by newest lobbies first
+            // Order by latest lobbies first, if u want newest make "asc: false"
             options.Order = new List<QueryOrder>()
             {
                 new QueryOrder(
-                    asc: false,
+                    asc: true,
                     field: QueryOrder.FieldOptions.Created)
             };
 
